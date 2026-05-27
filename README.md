@@ -1,4 +1,3 @@
-[deepseek_html_20260527_f6349e.html](https://github.com/user-attachments/files/28298007/deepseek_html_20260527_f6349e.html)
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,7 +34,7 @@
             width: 100%;
         }
 
-        /* Header / Navbar - Responsive */
+        /* Header / Navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -140,7 +139,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Botones responsivos */
         .btn-primary, .btn-secondary {
             padding: 12px 24px;
             font-size: 0.95rem;
@@ -182,7 +180,7 @@
             color: white;
         }
 
-        /* Hero responsive */
+        /* Hero */
         .hero {
             display: flex;
             flex-wrap: wrap;
@@ -228,7 +226,7 @@
             flex-wrap: wrap;
         }
 
-        /* Jobs section responsive */
+        /* Jobs */
         .jobs-section {
             background: white;
             border-radius: 28px;
@@ -262,6 +260,11 @@
             font-size: 0.9rem;
         }
 
+        .career-btn.active, .career-btn:hover {
+            background: #0B2B5E;
+            color: white;
+        }
+
         .jobs-list {
             display: flex;
             flex-direction: column;
@@ -282,7 +285,7 @@
             font-size: 1.05rem;
         }
 
-        /* Servicios grid responsive */
+        /* Servicios */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -305,7 +308,7 @@
             margin-bottom: 16px;
         }
 
-        /* Premium materials responsive */
+        /* Premium materials */
         .premium-materials {
             background: linear-gradient(135deg, #0B2B5E, #1E4A7A);
             border-radius: 28px;
@@ -317,12 +320,6 @@
         .premium-header {
             text-align: center;
             margin-bottom: 28px;
-        }
-
-        .premium-header i {
-            font-size: 2.5rem;
-            color: #F59E0B;
-            margin-bottom: 12px;
         }
 
         .materials-grid {
@@ -346,17 +343,6 @@
             margin-bottom: 12px;
         }
 
-        .material-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 6px;
-        }
-
-        .material-card p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-            margin-bottom: 12px;
-        }
-
         .material-badge {
             display: inline-block;
             background: #F59E0B;
@@ -375,13 +361,6 @@
             margin: 40px 0;
         }
 
-        .login-required-message i {
-            font-size: 3rem;
-            color: #F59E0B;
-            margin-bottom: 16px;
-        }
-
-        /* Pricing responsive */
         .pricing-card {
             background: white;
             border-radius: 36px;
@@ -411,7 +390,6 @@
             cursor: pointer;
         }
 
-        /* Contacto responsive */
         .contact-box {
             background: white;
             border-radius: 40px;
@@ -435,7 +413,6 @@
             cursor: pointer;
         }
 
-        /* Social section responsive */
         .social-section {
             background: linear-gradient(135deg, #0B2B5E, #1E4A7A);
             border-radius: 28px;
@@ -467,59 +444,141 @@
             transition: 0.2s;
         }
 
-        /* Modal Login Responsive */
+        /* ========== MODAL DE LOGIN MEJORADO ========== */
         .login-modal {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(5px);
             align-items: center;
             justify-content: center;
             z-index: 1001;
-            padding: 16px;
+            padding: 20px;
         }
 
         .login-container {
             background: white;
             border-radius: 32px;
             width: 100%;
-            max-width: 420px;
-            padding: 32px 24px;
-            position: relative;
+            max-width: 450px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            animation: modalFadeIn 0.3s ease;
         }
 
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Pestañas */
         .login-tabs {
             display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
-            border-bottom: 2px solid #eef2f9;
+            border-bottom: 1px solid #eef2f9;
         }
 
         .login-tab {
             flex: 1;
             text-align: center;
-            padding: 10px;
+            padding: 18px 16px;
+            background: none;
+            border: none;
             font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
+            color: #6c757d;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        .login-tab.active {
+            color: #0B2B5E;
+        }
+
+        .login-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #F59E0B;
+            border-radius: 3px;
+        }
+
+        .login-tab:hover:not(.active) {
+            color: #0B2B5E;
+            background: #f8f9fa;
+        }
+
+        /* Formularios */
+        .login-form {
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .login-form.hidden {
+            display: none;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #374151;
         }
 
         .input-group input {
-            padding: 12px 14px;
-            border: 1px solid #ddd;
-            border-radius: 12px;
+            padding: 14px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
             font-size: 0.95rem;
-            width: 100%;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #F59E0B;
+            box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
+        }
+
+        .input-group input::placeholder {
+            color: #cbd5e1;
         }
 
         .login-btn {
             background: #0B2B5E;
             color: white;
-            padding: 12px;
+            padding: 14px;
             border-radius: 40px;
             font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
-            width: 100%;
+            border: none;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .login-btn:hover {
+            background: #F59E0B;
+            color: #0B2B5E;
         }
 
         .close-modal {
@@ -528,9 +587,30 @@
             right: 20px;
             font-size: 1.3rem;
             cursor: pointer;
+            color: #9ca3af;
+            transition: 0.2s;
+            z-index: 10;
         }
 
-        /* Footer responsive */
+        .close-modal:hover {
+            color: #0B2B5E;
+        }
+
+        .login-footer {
+            text-align: center;
+            padding: 0 28px 32px 28px;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            border-top: 1px solid #f0f2f5;
+            margin-top: -10px;
+        }
+
+        .login-footer a {
+            color: #F59E0B;
+            text-decoration: none;
+        }
+
+        /* Footer */
         footer {
             background: #0B2B5E;
             color: white;
@@ -603,7 +683,6 @@
             display: inline-block;
         }
 
-        /* Modal pago */
         .modal {
             display: none;
             position: fixed;
@@ -625,7 +704,6 @@
             text-align: center;
         }
 
-        /* Botones flotantes responsive */
         .float-buttons {
             position: fixed;
             bottom: 20px;
@@ -653,254 +731,14 @@
         .whatsapp-float { background: #25D366; }
         .chatbot-float { background: #0B2B5E; }
 
-        /* Chatbot responsive */
-        .chatbot-widget {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            width: 340px;
-            max-width: calc(100vw - 40px);
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            display: none;
-            flex-direction: column;
-            z-index: 100;
-            overflow: hidden;
-        }
-
-        .chatbot-widget.open { display: flex; }
-
-        .chatbot-header {
-            background: #0B2B5E;
-            color: white;
-            padding: 14px 18px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .chat-messages {
-            height: 320px;
-            overflow-y: auto;
-            padding: 14px;
-            background: #f9fafc;
-        }
-
-        .message {
-            max-width: 85%;
-            padding: 10px 12px;
-            border-radius: 18px;
-            margin-bottom: 10px;
-            font-size: 0.85rem;
-        }
-
-        .message.user {
-            background: #0B2B5E;
-            color: white;
-            margin-left: auto;
-        }
-
-        .message.bot {
-            background: white;
-            border: 1px solid #eef2f9;
-        }
-
-        .chat-input-area {
-            display: flex;
-            padding: 10px;
-            gap: 8px;
-        }
-
-        .chat-input-area input {
-            flex: 1;
-            padding: 10px 12px;
-            border: 1px solid #ddd;
-            border-radius: 40px;
-            font-size: 0.85rem;
-        }
-
-        .chat-input-area button {
-            background: #F59E0B;
-            border: none;
-            border-radius: 40px;
-            padding: 0 16px;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* ========== MEDIA QUERIES RESPONSIVAS ========== */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 16px;
-            }
-            
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .nav-links {
-                justify-content: center;
-            }
-            
-            .nav-links button {
-                margin: 0 8px;
-                font-size: 0.85rem;
-            }
-            
-            .btn-login-nav {
-                margin-left: 8px !important;
-                padding: 6px 16px !important;
-            }
-            
-            .user-avatar {
-                margin-left: 8px;
-                padding: 5px 12px;
-                font-size: 0.85rem;
-            }
-            
-            .hero-left h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero-left p {
-                font-size: 0.9rem;
-            }
-            
-            .hero {
-                padding: 30px 0 20px;
-                gap: 24px;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .services-grid {
-                gap: 16px;
-            }
-            
-            .service-card {
-                padding: 20px 16px;
-            }
-            
-            .premium-materials {
-                padding: 24px 16px;
-            }
-            
-            .materials-grid {
-                gap: 16px;
-            }
-            
-            .material-card {
-                padding: 16px;
-            }
-            
-            .pricing-card {
-                padding: 28px 20px;
-                margin: 30px auto;
-            }
-            
-            .price {
-                font-size: 2.2rem;
-            }
-            
-            .contact-box {
-                padding: 30px 20px;
-                margin: 40px auto;
-            }
-            
-            .whatsapp-btn {
-                padding: 12px 24px;
-                font-size: 1rem;
-            }
-            
-            .social-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 16px;
-            }
-            
-            .footer-social {
-                justify-content: center;
-            }
-            
-            .float-buttons {
-                bottom: 16px;
-                right: 16px;
-            }
-            
-            .whatsapp-float, .chatbot-float {
-                width: 48px;
-                height: 48px;
-                font-size: 1.4rem;
-            }
-            
-            .chatbot-widget {
-                width: 320px;
-                bottom: 90px;
-                right: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-left h1 {
-                font-size: 1.6rem;
-            }
-            
-            .btn-primary, .btn-secondary {
-                padding: 10px 18px;
-                font-size: 0.85rem;
-            }
-            
-            .section-title {
-                font-size: 1.3rem;
-            }
-            
-            .career-btn {
-                padding: 6px 14px;
-                font-size: 0.8rem;
-            }
-            
-            .job-card {
-                padding: 12px 14px;
-            }
-            
-            .job-title {
-                font-size: 0.95rem;
-            }
-            
-            .service-card h3 {
-                font-size: 1rem;
-            }
-            
-            .service-card p {
-                font-size: 0.8rem;
-            }
-            
-            .login-container {
-                padding: 28px 20px;
-            }
-            
-            .chatbot-widget {
-                width: 300px;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .hero-left h1 {
-                font-size: 3.2rem;
-            }
-            
-            .container {
-                padding: 0 32px;
-            }
+            .hero-left h1 { font-size: 1.8rem; }
+            .navbar { flex-direction: column; text-align: center; }
+            .nav-links { justify-content: center; }
+            .nav-links button { margin: 0 8px; font-size: 0.85rem; }
+            .btn-login-nav { margin-left: 8px !important; padding: 6px 16px !important; }
+            .login-container { max-width: 95%; }
+            .login-form { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -911,34 +749,52 @@
     <div class="chatbot-float" id="chatbotFloatBtn"><i class="fas fa-robot"></i></div>
 </div>
 
-<!-- Modal Login -->
+<!-- MODAL DE LOGIN/REGISTRO MEJORADO -->
 <div id="loginModal" class="login-modal">
     <div class="login-container">
         <span class="close-modal" id="closeLoginModal">&times;</span>
+        
+        <!-- Pestañas separadas -->
         <div class="login-tabs">
-            <button class="login-tab active" data-tab="login">Iniciar Sesión</button>
-            <button class="login-tab" data-tab="register">Registrarse</button>
+            <button class="login-tab active" data-tab="login">🔐 Iniciar Sesión</button>
+            <button class="login-tab" data-tab="register">📝 Crear Cuenta</button>
         </div>
+        
+        <!-- Formulario de Inicio de Sesión -->
         <form id="loginForm" class="login-form">
-            <div class="input-group"><label>Correo</label><input type="email" id="loginEmail" placeholder="tu@email.com" required></div>
-            <div class="input-group"><label>Contraseña</label><input type="password" id="loginPassword" placeholder="••••••••" required></div>
+            <div class="input-group">
+                <label><i class="fas fa-envelope"></i> Correo electrónico</label>
+                <input type="email" id="loginEmail" placeholder="tu@email.com" required autocomplete="email">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-lock"></i> Contraseña</label>
+                <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+            </div>
             <button type="submit" class="login-btn">Ingresar</button>
-            <p style="text-align:center; font-size:0.75rem; margin-top:12px;">Demo: cualquier email/contraseña (min 4 caracteres)</p>
         </form>
+        
+        <!-- Formulario de Registro -->
         <form id="registerForm" class="login-form hidden">
-            <div class="input-group"><label>Nombre</label><input type="text" id="regName" placeholder="Juan Pérez" required></div>
-            <div class="input-group"><label>Correo</label><input type="email" id="regEmail" placeholder="tu@email.com" required></div>
-            <div class="input-group"><label>Contraseña</label><input type="password" id="regPassword" placeholder="mínimo 4 caracteres" required></div>
-            <button type="submit" class="login-btn">Crear cuenta</button>
+            <div class="input-group">
+                <label><i class="fas fa-user"></i> Nombre completo</label>
+                <input type="text" id="regName" placeholder="Juan Pérez" required autocomplete="name">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-envelope"></i> Correo electrónico</label>
+                <input type="email" id="regEmail" placeholder="tu@email.com" required autocomplete="email">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-lock"></i> Contraseña</label>
+                <input type="password" id="regPassword" placeholder="Mínimo 4 caracteres" required autocomplete="new-password">
+            </div>
+            <button type="submit" class="login-btn">Crear cuenta gratuita</button>
         </form>
+        
+        <div class="login-footer">
+            <p>Demo: usa cualquier email y contraseña (mín 4 caracteres)</p>
+            <p style="margin-top: 8px;">🔒 Al registrarte aceptas nuestros <a href="#">Términos</a></p>
+        </div>
     </div>
-</div>
-
-<!-- Chatbot -->
-<div class="chatbot-widget" id="chatbotWidget">
-    <div class="chatbot-header"><h3 style="font-size:0.95rem;"><i class="fas fa-brain"></i> CareerForge AI</h3><button class="close-chat" id="closeChatBtn" style="background:none; border:none; color:white; font-size:1.2rem;">&times;</button></div>
-    <div class="chat-messages" id="chatMessages"><div class="message bot">👋 ¡Hola! Soy el asistente de CareerForge. ¿En qué puedo ayudarte?</div></div>
-    <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Escribe tu mensaje..."><button id="sendChatBtn"><i class="fas fa-paper-plane"></i></button></div>
 </div>
 
 <div class="container">
@@ -959,10 +815,10 @@
         <div class="hero">
             <div class="hero-left">
                 <h1>Domina tu futuro<br>Consigue el trabajo que mereces</h1>
-                <p>Capacitación intensiva + optimización de HV + preparación para entrevistas. Te convertimos en el candidato imparable que toda empresa quiere contratar.</p>
+                <p>Capacitación intensiva + optimización de HV + preparación para entrevistas. Te convertimos en el candidato imparable.</p>
                 <div class="btn-group">
                     <button class="btn-primary" id="heroWhatsappBtn"><i class="fab fa-whatsapp"></i> Quiero mi asesoría</button>
-                    <button class="btn-secondary" id="heroToJobsBtn"><i class="fas fa-briefcase"></i> Ver trabajos</button>
+                    <button class="btn-secondary" id="heroToJobsBtn"><i class="fas fa-briefcase"></i> Ver trabajos activos</button>
                 </div>
             </div>
             <div class="hero-right">
@@ -1052,77 +908,188 @@
 <div id="paymentModal" class="modal"><div class="modal-content"><i class="fas fa-lock" style="font-size:2rem;"></i><h3 style="margin:12px 0;">Pago seguro</h3><button id="mockPayBtn" class="btn-pay" style="margin:12px 0;">Simular Pago Exitoso</button><button id="closeModalBtn" class="btn-secondary" style="width:100%;">Cancelar</button></div></div>
 
 <script>
-    // WHATSAPP
+    // ========== WHATSAPP ==========
     const WHATSAPP_NUMBER = "573001234567";
     function sendWhatsApp(msg = "Hola! Quiero impulsar mi carrera con CareerForge") {
         window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }
-    document.getElementById('heroWhatsappBtn')?.addEventListener('click',()=>sendWhatsApp());
-    document.getElementById('contactWhatsappBtn')?.addEventListener('click',()=>sendWhatsApp());
-    document.getElementById('whatsappFloatBtn')?.addEventListener('click',()=>sendWhatsApp());
     
-    // REDES SOCIALES
-    const SOCIAL = { linkedin:"https://linkedin.com/company/careerforge", instagram:"https://instagram.com/careerforge", facebook:"https://facebook.com/careerforge", twitter:"https://twitter.com/careerforge", youtube:"https://youtube.com/@careerforge" };
-    ['socialLinkedin','footerLinkedin'].forEach(id=>document.getElementById(id)?.setAttribute('href',SOCIAL.linkedin));
-    ['socialInstagram','footerInstagram'].forEach(id=>document.getElementById(id)?.setAttribute('href',SOCIAL.instagram));
-    ['socialFacebook','footerFacebook'].forEach(id=>document.getElementById(id)?.setAttribute('href',SOCIAL.facebook));
-    ['socialTwitter','footerTwitter'].forEach(id=>document.getElementById(id)?.setAttribute('href',SOCIAL.twitter));
-    ['socialYoutube','footerYoutube'].forEach(id=>document.getElementById(id)?.setAttribute('href',SOCIAL.youtube));
+    document.getElementById('heroWhatsappBtn')?.addEventListener('click', () => sendWhatsApp());
+    document.getElementById('contactWhatsappBtn')?.addEventListener('click', () => sendWhatsApp());
+    document.getElementById('whatsappFloatBtn')?.addEventListener('click', () => sendWhatsApp());
     
-    // NAVEGACIÓN
-    const pages = { inicio:document.getElementById('page-inicio'), trabajos:document.getElementById('page-trabajos'), capacitacion:document.getElementById('page-capacitacion'), planes:document.getElementById('page-planes'), contacto:document.getElementById('page-contacto') };
-    function showPage(pageId) { Object.values(pages).forEach(p=>p.classList.remove('active-page')); pages[pageId].classList.add('active-page'); ['navTrabajosBtn','navCapacitacionBtn','navPlanesBtn','navContactoBtn'].forEach(id=>document.getElementById(id)?.classList.remove('active')); if(pageId!=='inicio') document.getElementById(`nav${pageId.charAt(0).toUpperCase()+pageId.slice(1)}Btn`)?.classList.add('active'); }
-    document.getElementById('navTrabajosBtn')?.addEventListener('click',()=>showPage('trabajos'));
-    document.getElementById('navCapacitacionBtn')?.addEventListener('click',()=>showPage('capacitacion'));
-    document.getElementById('navPlanesBtn')?.addEventListener('click',()=>showPage('planes'));
-    document.getElementById('navContactoBtn')?.addEventListener('click',()=>showPage('contacto'));
-    document.getElementById('navInicioBtn')?.addEventListener('click',()=>showPage('inicio'));
-    document.getElementById('footerLogoBtn')?.addEventListener('click',()=>showPage('inicio'));
-    document.getElementById('heroToJobsBtn')?.addEventListener('click',()=>showPage('trabajos'));
-    document.getElementById('capacitacionToPlanesBtn')?.addEventListener('click',()=>showPage('planes'));
+    // ========== REDES SOCIALES ==========
+    const SOCIAL = {
+        linkedin: "https://linkedin.com/company/careerforge",
+        instagram: "https://instagram.com/careerforge",
+        facebook: "https://facebook.com/careerforge",
+        twitter: "https://twitter.com/careerforge",
+        youtube: "https://youtube.com/@careerforge"
+    };
+    ['socialLinkedin', 'footerLinkedin'].forEach(id => document.getElementById(id)?.setAttribute('href', SOCIAL.linkedin));
+    ['socialInstagram', 'footerInstagram'].forEach(id => document.getElementById(id)?.setAttribute('href', SOCIAL.instagram));
+    ['socialFacebook', 'footerFacebook'].forEach(id => document.getElementById(id)?.setAttribute('href', SOCIAL.facebook));
+    ['socialTwitter', 'footerTwitter'].forEach(id => document.getElementById(id)?.setAttribute('href', SOCIAL.twitter));
+    ['socialYoutube', 'footerYoutube'].forEach(id => document.getElementById(id)?.setAttribute('href', SOCIAL.youtube));
     
-    // JOBS
-    const jobsDB = { tecnologia:[{title:"Ingeniero Software Senior", company:"LinkedIn Corp", location:"Remoto"},{title:"Data Scientist", company:"Google", location:"CDMX"}], marketing:[{title:"Growth Manager", company:"HubSpot", location:"Bogotá"}], finanzas:[{title:"Financial Analyst", company:"JP Morgan", location:"Bogotá"}] };
-    function fetchJobs(career) { const container = document.getElementById('jobsContainer'); container.innerHTML = '<div style="text-align:center; padding:30px;"><i class="fas fa-spinner fa-pulse"></i> Cargando...</div>'; setTimeout(()=>{ const jobs = jobsDB[career]; container.innerHTML = jobs.map(job=>`<div class="job-card"><div class="job-title">${job.title}</div><div class="job-company"><i class="fab fa-linkedin"></i> ${job.company}</div><div class="job-location">📍 ${job.location}</div><div style="margin-top:10px;"><button class="btn-secondary" style="padding:6px 14px; font-size:0.8rem;" onclick="sendWhatsApp('Me interesa ${job.title}')">Aplicar</button></div></div>`).join(''); },300); }
-    document.querySelectorAll('.career-btn').forEach(btn=>{ btn.addEventListener('click',function(){ document.querySelectorAll('.career-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active'); fetchJobs(this.dataset.career); }); }); fetchJobs('tecnologia');
+    // ========== NAVEGACIÓN ==========
+    const pages = {
+        inicio: document.getElementById('page-inicio'),
+        trabajos: document.getElementById('page-trabajos'),
+        capacitacion: document.getElementById('page-capacitacion'),
+        planes: document.getElementById('page-planes'),
+        contacto: document.getElementById('page-contacto')
+    };
     
-    // MATERIAL PREMIUM
+    function showPage(pageId) {
+        Object.values(pages).forEach(p => p.classList.remove('active-page'));
+        pages[pageId].classList.add('active-page');
+        ['navTrabajosBtn', 'navCapacitacionBtn', 'navPlanesBtn', 'navContactoBtn'].forEach(id => 
+            document.getElementById(id)?.classList.remove('active'));
+        if (pageId !== 'inicio') document.getElementById(`nav${pageId.charAt(0).toUpperCase() + pageId.slice(1)}Btn`)?.classList.add('active');
+    }
+    
+    document.getElementById('navTrabajosBtn')?.addEventListener('click', () => showPage('trabajos'));
+    document.getElementById('navCapacitacionBtn')?.addEventListener('click', () => showPage('capacitacion'));
+    document.getElementById('navPlanesBtn')?.addEventListener('click', () => showPage('planes'));
+    document.getElementById('navContactoBtn')?.addEventListener('click', () => showPage('contacto'));
+    document.getElementById('navInicioBtn')?.addEventListener('click', () => showPage('inicio'));
+    document.getElementById('footerLogoBtn')?.addEventListener('click', () => showPage('inicio'));
+    document.getElementById('heroToJobsBtn')?.addEventListener('click', () => showPage('trabajos'));
+    document.getElementById('capacitacionToPlanesBtn')?.addEventListener('click', () => showPage('planes'));
+    
+    // ========== JOBS ==========
+    const jobsDB = {
+        tecnologia: [
+            { title: "Ingeniero Software Senior", company: "LinkedIn Corp", location: "Remoto" },
+            { title: "Data Scientist", company: "Google", location: "CDMX" },
+            { title: "Frontend React Developer", company: "Globant", location: "Buenos Aires" }
+        ],
+        marketing: [
+            { title: "Growth Manager", company: "HubSpot", location: "Bogotá" },
+            { title: "Social Media Strategist", company: "WPP", location: "Remoto" }
+        ],
+        finanzas: [
+            { title: "Financial Analyst", company: "JP Morgan", location: "Bogotá" },
+            { title: "Auditor Senior", company: "EY", location: "Santiago" }
+        ]
+    };
+    
+    function fetchJobs(career) {
+        const container = document.getElementById('jobsContainer');
+        container.innerHTML = '<div style="text-align:center; padding:30px;"><i class="fas fa-spinner fa-pulse"></i> Cargando...</div>';
+        setTimeout(() => {
+            const jobs = jobsDB[career];
+            container.innerHTML = jobs.map(job => `
+                <div class="job-card">
+                    <div class="job-title">${job.title}</div>
+                    <div class="job-company"><i class="fab fa-linkedin"></i> ${job.company}</div>
+                    <div class="job-location">📍 ${job.location}</div>
+                    <div style="margin-top:10px;">
+                        <button class="btn-secondary" style="padding:6px 14px; font-size:0.8rem;" onclick="sendWhatsApp('Me interesa la oferta de ${job.title} en ${job.company}')">Aplicar vía WhatsApp</button>
+                    </div>
+                </div>
+            `).join('');
+        }, 400);
+    }
+    
+    document.querySelectorAll('.career-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.career-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            fetchJobs(this.dataset.career);
+        });
+    });
+    fetchJobs('tecnologia');
+    
+    // ========== MATERIAL PREMIUM ==========
     const premiumMaterials = [
-        { icon:"fas fa-video", title:"Masterclass: Cómo pasar un ATS", desc:"Optimiza tu HV para filtros automatizados", type:"Video", duration:"45 min" },
-        { icon:"fas fa-file-pdf", title:"Guía de entrevista por competencias", desc:"Preguntas frecuentes y cómo responderlas", type:"PDF", pages:"28 páginas" },
-        { icon:"fas fa-chalkboard", title:"Webinar: Negociación salarial", desc:"Técnicas para aumentar tu oferta", type:"Webinar", duration:"60 min" }
+        { icon: "fas fa-video", title: "Masterclass: Cómo pasar un ATS", desc: "Optimiza tu HV para filtros automatizados", type: "Video", duration: "45 min" },
+        { icon: "fas fa-file-pdf", title: "Guía de entrevista por competencias", desc: "Preguntas frecuentes y cómo responderlas", type: "PDF", pages: "28 páginas" },
+        { icon: "fas fa-chalkboard", title: "Webinar: Negociación salarial", desc: "Técnicas para aumentar tu oferta", type: "Webinar", duration: "60 min" }
     ];
+    
     function renderPremiumMaterials() {
         const container = document.getElementById('premiumMaterialsContainer');
         const isLoggedIn = localStorage.getItem('careerforge_user') !== null;
-        if(!container) return;
-        if(isLoggedIn) {
+        if (!container) return;
+        if (isLoggedIn) {
             const user = JSON.parse(localStorage.getItem('careerforge_user'));
-            container.innerHTML = `<div class="premium-materials"><div class="premium-header"><i class="fas fa-gem"></i><h2 style="font-size:1.3rem;">🎓 Material Exclusivo para ${user.name.split(' ')[0]}</h2><p style="font-size:0.85rem;">Contenido premium desbloqueado</p></div><div class="materials-grid">${premiumMaterials.map(mat => `<div class="material-card" onclick="alert('🔓 Contenido exclusivo: ${mat.title}')"><i class="${mat.icon}"></i><h4>${mat.title}</h4><p>${mat.desc}</p><span class="material-badge">${mat.type} · ${mat.duration || mat.pages}</span></div>`).join('')}</div><div style="text-align:center; margin-top:24px;"><button class="btn-secondary" id="accessAllMaterialsBtn" style="background:#F59E0B; color:#0B2B5E; border:none; padding:10px 20px;">Descargar recursos</button></div></div>`;
-            document.getElementById('accessAllMaterialsBtn')?.addEventListener('click', () => { alert("📚 Enlace enviado a tu correo."); sendWhatsApp("Quiero acceder al material premium."); });
+            container.innerHTML = `
+                <div class="premium-materials">
+                    <div class="premium-header">
+                        <i class="fas fa-gem" style="font-size:2rem; color:#F59E0B;"></i>
+                        <h2 style="font-size:1.3rem; margin-top:12px;">🎓 Material Exclusivo para ${user.name.split(' ')[0]}</h2>
+                        <p style="font-size:0.85rem;">Contenido premium desbloqueado</p>
+                    </div>
+                    <div class="materials-grid">
+                        ${premiumMaterials.map(mat => `
+                            <div class="material-card" onclick="alert('🔓 Contenido exclusivo: ${mat.title}\\n\\nAcceso completo para miembros Elite.')">
+                                <i class="${mat.icon}"></i>
+                                <h4>${mat.title}</h4>
+                                <p>${mat.desc}</p>
+                                <span class="material-badge">${mat.type} · ${mat.duration || mat.pages}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div style="text-align:center; margin-top:24px;">
+                        <button class="btn-secondary" id="accessAllMaterialsBtn" style="background:#F59E0B; color:#0B2B5E; border:none; padding:10px 20px;">Descargar recursos</button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('accessAllMaterialsBtn')?.addEventListener('click', () => {
+                alert("📚 Enlace de descarga enviado a tu correo registrado.");
+                sendWhatsApp("Quiero acceder a todo el material de capacitación premium.");
+            });
         } else {
-            container.innerHTML = `<div class="login-required-message"><i class="fas fa-lock"></i><h3 style="font-size:1.2rem;">🔒 Contenido Exclusivo</h3><p>Accede a masterclasses, guías y webinars exclusivos.</p><button id="unlockMaterialsBtn" class="btn-primary" style="margin-top:16px;"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button></div>`;
-            document.getElementById('unlockMaterialsBtn')?.addEventListener('click', () => { document.getElementById('loginModal').style.display = 'flex'; });
+            container.innerHTML = `
+                <div class="login-required-message">
+                    <i class="fas fa-lock" style="font-size:3rem; color:#F59E0B;"></i>
+                    <h3 style="font-size:1.2rem;">🔒 Contenido Exclusivo para Miembros</h3>
+                    <p>Accede a nuestro material premium de capacitación: masterclasses, guías, plantillas y webinars exclusivos.</p>
+                    <button id="unlockMaterialsBtn" class="btn-primary" style="margin-top:16px;"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión para Desbloquear</button>
+                </div>
+            `;
+            document.getElementById('unlockMaterialsBtn')?.addEventListener('click', () => {
+                document.getElementById('loginModal').style.display = 'flex';
+            });
         }
     }
     
-    // LOGIN
+    // ========== LOGIN / REGISTRO MEJORADO ==========
     const loginModal = document.getElementById('loginModal');
     const loginNavBtn = document.getElementById('loginNavBtn');
     const closeLoginModal = document.getElementById('closeLoginModal');
     const userMenu = document.getElementById('userMenu');
     const userNameDisplay = document.getElementById('userNameDisplay');
+    
+    // Elementos de las pestañas
     const loginTab = document.querySelector('[data-tab="login"]');
     const registerTab = document.querySelector('[data-tab="register"]');
     const loginFormElem = document.getElementById('loginForm');
     const registerFormElem = document.getElementById('registerForm');
     
-    loginTab?.addEventListener('click',()=>{ loginTab.classList.add('active'); registerTab.classList.remove('active'); loginFormElem.classList.remove('hidden'); registerFormElem.classList.add('hidden'); });
-    registerTab?.addEventListener('click',()=>{ registerTab.classList.add('active'); loginTab.classList.remove('active'); loginFormElem.classList.add('hidden'); registerFormElem.classList.remove('hidden'); });
+    // Cambiar entre pestañas
+    function switchTab(tab) {
+        if (tab === 'login') {
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
+            loginFormElem.classList.remove('hidden');
+            registerFormElem.classList.add('hidden');
+        } else {
+            registerTab.classList.add('active');
+            loginTab.classList.remove('active');
+            loginFormElem.classList.add('hidden');
+            registerFormElem.classList.remove('hidden');
+        }
+    }
+    
+    loginTab?.addEventListener('click', () => switchTab('login'));
+    registerTab?.addEventListener('click', () => switchTab('register'));
     
     function updateUI() {
         const user = localStorage.getItem('careerforge_user');
-        if(user) {
+        if (user) {
             const userData = JSON.parse(user);
             loginNavBtn.style.display = 'none';
             userMenu.style.display = 'flex';
@@ -1135,34 +1102,103 @@
         }
     }
     
-    loginNavBtn?.addEventListener('click',()=>loginModal.style.display='flex');
-    closeLoginModal?.addEventListener('click',()=>loginModal.style.display='none');
-    window.addEventListener('click',(e)=>{ if(e.target===loginModal) loginModal.style.display='none'; });
+    loginNavBtn?.addEventListener('click', () => {
+        // Resetear a la pestaña de login cada vez que se abre
+        switchTab('login');
+        loginModal.style.display = 'flex';
+    });
     
-    document.getElementById('loginForm')?.addEventListener('submit',(e)=>{ e.preventDefault(); const email = document.getElementById('loginEmail').value; const password = document.getElementById('loginPassword').value; if(email && password.length>=1){ const stored = localStorage.getItem('careerforge_user'); if(stored){ const u=JSON.parse(stored); if(u.email===email && u.password===password){ alert(`✅ ¡Bienvenido ${u.name}!`); loginModal.style.display='none'; updateUI(); } else alert('❌ Credenciales incorrectas'); } else alert('❌ Regístrate primero'); } else alert('Completa los campos'); });
+    closeLoginModal?.addEventListener('click', () => loginModal.style.display = 'none');
+    window.addEventListener('click', (e) => { if (e.target === loginModal) loginModal.style.display = 'none'; });
     
-    document.getElementById('registerForm')?.addEventListener('submit',(e)=>{ e.preventDefault(); const name=document.getElementById('regName').value; const email=document.getElementById('regEmail').value; const password=document.getElementById('regPassword').value; if(name && email && password.length>=4){ localStorage.setItem('careerforge_user',JSON.stringify({name,email,password})); alert(`✅ Cuenta creada, ${name}! Ahora inicia sesión.`); loginTab.click(); document.getElementById('loginEmail').value=email; } else alert('Completa todos los campos (mín 4 caracteres)'); });
+    // Login
+    document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        if (email && password.length >= 1) {
+            const stored = localStorage.getItem('careerforge_user');
+            if (stored) {
+                const u = JSON.parse(stored);
+                if (u.email === email && u.password === password) {
+                    alert(`✅ ¡Bienvenido de nuevo, ${u.name}!`);
+                    loginModal.style.display = 'none';
+                    updateUI();
+                } else {
+                    alert('❌ Credenciales incorrectas. Si no tienes cuenta, regístrate.');
+                }
+            } else {
+                alert('❌ No hay cuenta registrada. Por favor, regístrate primero.');
+            }
+        } else {
+            alert('Por favor ingresa email y contraseña');
+        }
+    });
     
-    userMenu?.addEventListener('click',()=>{ if(confirm('¿Cerrar sesión?')){ localStorage.removeItem('careerforge_user'); updateUI(); alert('Sesión cerrada'); } });
+    // Registro
+    document.getElementById('registerForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('regName').value;
+        const email = document.getElementById('regEmail').value;
+        const password = document.getElementById('regPassword').value;
+        if (name && email && password.length >= 4) {
+            localStorage.setItem('careerforge_user', JSON.stringify({ name, email, password }));
+            alert(`✅ ¡Cuenta creada exitosamente, ${name}! Ahora puedes iniciar sesión.`);
+            switchTab('login');
+            document.getElementById('loginEmail').value = email;
+            document.getElementById('loginPassword').value = '';
+        } else {
+            alert('Por favor completa todos los campos (contraseña mínimo 4 caracteres)');
+        }
+    });
     
-    // MODAL PAGO
+    userMenu?.addEventListener('click', () => {
+        if (confirm('¿Cerrar sesión?')) {
+            localStorage.removeItem('careerforge_user');
+            updateUI();
+            alert('Sesión cerrada correctamente');
+        }
+    });
+    
+    // ========== MODAL PAGO ==========
     const modal = document.getElementById('paymentModal');
-    document.getElementById('openPaymentModal')?.addEventListener('click',()=>modal.style.display='flex');
-    document.getElementById('closeModalBtn')?.addEventListener('click',()=>modal.style.display='none');
-    document.getElementById('mockPayBtn')?.addEventListener('click',()=>{ modal.style.display='none'; alert("✅ Pago exitoso"); sendWhatsApp("Acabo de pagar el Plan Élite"); });
-    window.onclick = e=>{ if(e.target===modal) modal.style.display='none'; };
+    document.getElementById('openPaymentModal')?.addEventListener('click', () => modal.style.display = 'flex');
+    document.getElementById('closeModalBtn')?.addEventListener('click', () => modal.style.display = 'none');
+    document.getElementById('mockPayBtn')?.addEventListener('click', () => {
+        modal.style.display = 'none';
+        alert("✅ Pago simulado exitoso. Te contactaremos por WhatsApp.");
+        sendWhatsApp("Acabo de pagar el Plan Élite. Quiero comenzar mi capacitación YA.");
+    });
+    window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
     
-    // CHATBOT
+    // ========== CHATBOT SIMULADO ==========
     const chatbotWidget = document.getElementById('chatbotWidget');
     const chatMessages = document.getElementById('chatMessages');
     const chatInput = document.getElementById('chatInput');
-    document.getElementById('chatbotFloatBtn')?.addEventListener('click',()=>chatbotWidget.classList.toggle('open'));
-    document.getElementById('closeChatBtn')?.addEventListener('click',()=>chatbotWidget.classList.remove('open'));
-    function addMessage(text,isUser){ const div=document.createElement('div'); div.className=`message ${isUser?'user':'bot'}`; div.innerHTML=text; chatMessages.appendChild(div); chatMessages.scrollTop=chatMessages.scrollHeight; }
-    function sendChat(){ const msg=chatInput.value.trim(); if(!msg) return; addMessage(msg,true); chatInput.value=''; addMessage("✨ Un asesor te contactará pronto. Revisa nuestro material exclusivo al iniciar sesión. 🚀",false); }
-    document.getElementById('sendChatBtn')?.addEventListener('click',sendChat);
-    chatInput?.addEventListener('keypress',e=>{if(e.key==='Enter') sendChat();});
     
+    document.getElementById('chatbotFloatBtn')?.addEventListener('click', () => chatbotWidget.classList.toggle('open'));
+    document.getElementById('closeChatBtn')?.addEventListener('click', () => chatbotWidget.classList.remove('open'));
+    
+    function addMessage(text, isUser) {
+        const div = document.createElement('div');
+        div.className = `message ${isUser ? 'user' : 'bot'}`;
+        div.innerHTML = text;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    function sendChat() {
+        const msg = chatInput.value.trim();
+        if (!msg) return;
+        addMessage(msg, true);
+        chatInput.value = '';
+        addMessage("✨ Gracias por tu mensaje. Un asesor se comunicará contigo pronto. Mientras, revisa nuestras ofertas de trabajo o el plan de capacitación. 🚀", false);
+    }
+    
+    document.getElementById('sendChatBtn')?.addEventListener('click', sendChat);
+    chatInput?.addEventListener('keypress', e => { if (e.key === 'Enter') sendChat(); });
+    
+    // Inicializar
     updateUI();
 </script>
 </body>
